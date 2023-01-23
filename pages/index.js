@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import { Inter } from '@next/font/google'
+import Sidebar from "../components/Sidebar";
+// import { Inter } from '@next/font/google'
 
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -13,7 +14,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Hello Wrold!</h1>
+      
+      <main className='flex min-h-screen mx-auto'>
+
+      {/* Sidebar */}
+
+      <Sidebar/> 
+
+      {/* Feed */}
+
+
+      {/* Widgets */}
+
+
+      {/* Modal */}
+
+      </main>
+
+
     </div>
   )
 }
