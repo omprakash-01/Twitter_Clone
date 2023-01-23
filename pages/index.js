@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Feed from '../components/Feed';
 import Sidebar from "../components/Sidebar";
 // import { Inter } from '@next/font/google'
 
@@ -22,6 +23,11 @@ export default function Home() {
       <Sidebar/> 
 
       {/* Feed */}
+
+
+      <Feed/>
+
+
 
 
       {/* Widgets */}
