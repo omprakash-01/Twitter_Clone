@@ -7,7 +7,7 @@ import Sidebar from "../components/Sidebar";
 
 // const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({ newsResults}) {
   return (
     <div>
       <Head>
@@ -32,7 +32,8 @@ export default function Home() {
 
 
       {/* Widgets */}
-      <Widgets/>
+      <Widgets  newsResults={newsResults.articles}
+         />
 
       {/* Modal */}
 
@@ -40,5 +41,37 @@ export default function Home() {
 
 
     </div>
-  )
+  );
+}
+
+// https://saurav.tech/NewsAPI/top-headlines/category/coding/in.json
+
+export async function getServerSideProps() {
+  const newsResults = await fetch(
+    "https://saurav.tech/NewsAPI/top-headlines/category/business/in.json"
+  ).then((res) => res.json());
+
+  // Who to follow section
+
+  // let randomUsersResults = [];
+
+  // try {
+  //   const res = await fetch(
+  //     "https://randomuser.me/api/?results=30&inc=name,login,picture"
+  //   );
+
+  //   randomUsersResults = await res.json();
+  // } catch (e) {
+  //   randomUsersResults = [];
+  // }
+
+  // const randomUsersResults = await fetch(
+  //   "https://randomuser.me/api/?results=30&inc=name,login,picture"
+  // ).then((res) => res.json());
+
+  return {
+    props: {
+      newsResults,
+    },
+  };
 }
