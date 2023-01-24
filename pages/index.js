@@ -7,7 +7,7 @@ import Sidebar from "../components/Sidebar";
 
 // const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({ newsResults}) {
+export default function Home({ newsResults, randomUsersResults}) {
   return (
     <div>
       <Head>
@@ -32,7 +32,7 @@ export default function Home({ newsResults}) {
 
 
       {/* Widgets */}
-      <Widgets  newsResults={newsResults.articles}
+      <Widgets  newsResults={newsResults.articles} randomUsersResults={randomUsersResults.results}
          />
 
       {/* Modal */}
@@ -65,13 +65,14 @@ export async function getServerSideProps() {
   //   randomUsersResults = [];
   // }
 
-  // const randomUsersResults = await fetch(
-  //   "https://randomuser.me/api/?results=30&inc=name,login,picture"
-  // ).then((res) => res.json());
+  const randomUsersResults = await fetch(
+    "https://randomuser.me/api/?results=30&inc=name,login,picture"
+  ).then((res) => res.json());
 
   return {
     props: {
       newsResults,
+      randomUsersResults,
     },
   };
 }
