@@ -1,10 +1,15 @@
 import { FaceSmileIcon, PhotoIcon } from '@heroicons/react/24/outline'
-import React from 'react'
-
+import { useSession, signOut} from "next-auth/react";
 export default function input() {
+    const {data:session} = useSession()
+    console.log(session);
+
   return (
-    <div className='flex border-b border-gray-200'>
-        <img src="https://yt3.googleusercontent.com/mMkGHtWc98CYoUfKIT-iIxtKF5jiU9XOl0wH9wG4b7Q0Zeq9qKPs1H4TKTDL7rpEghV7XRWtoUI=s900-c-k-c0x00ffffff-no-rj" alt="user-img" className='h-14 w-14 rounded full cursor-pointer hover:brightness-95 p-3 space-x-3'  />
+    <>
+ {session && (
+        
+        <div className='flex border-b border-gray-200'>
+        <img onClick={signOut} src={session.user.image} alt="user-img" className='h-20 w-20 rounded-full cursor-pointer hover:brightness-95 p-3 space-x-3 '  />
         <div className="w-full divide-y divide-gray-200">
             <div className="">
                 <textarea className='w-full border-none focus:ring-0 text-lg placeholder-gray-700 tracking-wide min-h-[50px] text-gray-700 ' rows="2" placeholder="What's happing guy's?" ></textarea>
@@ -18,5 +23,10 @@ export default function input() {
             </div>
         </div>
     </div>
-  )
+
+    )}
+    </>
+   
+    
+  );
 }

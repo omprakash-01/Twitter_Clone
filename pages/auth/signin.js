@@ -15,7 +15,7 @@ export default function signin(providers) {
               alt="twitter-logo"
             />
             <p className="text-center text-sm italic my-10 ">This is Minor Project </p>
-            <button onClick={()=> signIn(provider.id, {callbackUrl:"/"})} className="bg-sky-400 rounded-lg p-3 text-white hover:bg-sky-500 ">Sign in with Google </button>
+            <button onClick={()=> signIn(provider.id, {callbackUrl:"/"})} className="bg-sky-400 rounded-lg p-3 text-white hover:bg-sky-500 ">Sign in with {provider.name} </button>
           </div>
         ))}
       </div>
