@@ -1,11 +1,7 @@
-import Widgets from '../components/Widgets';
-import Head from 'next/head'
+import Head from 'next/head';
 import Feed from '../components/Feed';
 import Sidebar from "../components/Sidebar";
-// import { Inter } from '@next/font/google'
-
-
-// const inter = Inter({ subsets: ['latin'] })
+import Widgets from '../components/Widgets';
 
 export default function Home({ newsResults, randomUsersResults}) {
   return (
